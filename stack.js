@@ -21,13 +21,14 @@ class Stack {
 
   push(val) {
     let node = new Node(val);
-    if (!this.last) {
+    if (!this.first) {
       this.first = node;
       this.last = node;
+    } else {
+      let store = this.first;
+      this.first = node;
+      this.first.next = store;
     }
-    let store = this.first;
-    this.node = this.first;
-    this.first.next = store;
     this.size++;
   }
 
